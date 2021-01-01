@@ -437,7 +437,7 @@ struct node* mkleaf(char* token) {
 	node* newnode=(node*)malloc(sizeof(node));
 	char* newstr;
 
-	if(token) {
+	if (token) {
 		newstr=(char*)malloc(sizeof(token)+1);
 		newstr[sizeof(token)]='\0';
 		strcpy(newstr,token);
@@ -462,14 +462,14 @@ struct node* mknode2(char* token,node*left,node*right) {
 }
 
 void printTabs1() {
-	for(int i=0;i<tabCount1;i++){
+	for(int i = 0; i < tabCount1; i++){
 		printf(".  ");	
 	}
 }
 
 void printTabs2() {
 	int i;
-	for(i=0;i<tabCount2;i++) {
+	for (i = 0; i < tabCount2; i++) {
 		printf(".  ");
 	}
 }
@@ -499,16 +499,16 @@ int printtree(node* tree) {
         printf(")\n");
         }
     
-    if(tree->left){
+    if (tree->left){
         printf("LEFT: ");
         printtree(tree->left);
     }
-    if(tree->right)
+    if (tree->right)
     {
         printf("RIGHT: ");
         printtree(tree->right);
     }
-    if(tree->left != NULL || tree->right != NULL){
+    if (tree->left != NULL || tree->right != NULL){
         if(strcmp(tree->token," ") !=0 ) {
             printTabs2();
             printf(")\n");
