@@ -83,6 +83,8 @@ char* arithmetic_statement_check(node* tree);
 void for_initialization_check(node* tree);
 void for_condition_check(node* tree);
 void assignment(node* tree);
+void printTextFile();
+void printTreeLogo();
 
 // PART 3
 static node * firstNode;
@@ -98,6 +100,7 @@ char *replaceWord(const char *s, const char *oldW, const char *newW);
 char * mkspace(char *label);
 void calc3AC(node * tree);
 int findfunc(char *func_name);
+void print3AC();
 static int t = 1;
 static int l = 1;
 static int line = 1;
@@ -127,7 +130,7 @@ static int line = 1;
 
 %start program
 %%
-program		    :	code { /*print_input_code();*/ printtree($1); printf("\n"); syntaxMKscope($1); printf("\n"); calc3AC($1); }
+program		    :	code { printTextFile(); printf("\n"); printTreeLogo(); printtree($1); printf("\n"); syntaxMKscope($1); printf("\n"); print3AC(); calc3AC($1); }
                 ;
 
 code            :   code_ { $$ = mknode2("CODE", NULL, $1); }
@@ -461,6 +464,20 @@ struct node* mknode2(char* token,node*left,node*right) {
     return newnode;
 }
 
+void printTextFile() {
+    printf("#############################################################\n");
+    printf("#################### Input Code #############################\n");
+    printf("#############################################################\n");
+    int c;
+    FILE *file;
+    file = fopen("input_code.txt", "r");
+    if (file) {
+        while ((c = getc(file)) != EOF)
+            putchar(c);
+        fclose(file);
+    }
+}
+
 void printTabs1() {
 	for(int i = 0; i < tabCount1; i++){
 		printf(".  ");	
@@ -480,6 +497,22 @@ void openTag() {
 
 void closeTag() {
 	printf("(/%d)" , tabCount1);	
+}
+/*
+printf("#############################################################\n");
+    printf("################## Abstract Syntax Tree #####################"\n);
+    printf("#############################################################"\n);
+*/
+void printTreeLogo() {
+    printf("#############################################################\n");
+    printf("################## Abstract Syntax Tree #####################\n");
+    printf("#############################################################\n");
+}
+
+void print3AC() {
+    printf("#############################################################\n");
+    printf("########################## 3AC ##############################\n");
+    printf("#############################################################\n");
 }
 
 int printtree(node* tree) {

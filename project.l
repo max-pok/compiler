@@ -4,10 +4,12 @@
 extern int yylineno;
 extern YYSTYPE yylval;
 YYSTYPE yylval;
-
 %}
+
+%option noyywrap
+
 %%
-\:		return COLUMS;
+\:		    return COLUMS;
 "&&"      	return AND;
 "||"    	return OR; 
 !=     	 	return ROP_NE;
@@ -24,15 +26,15 @@ YYSTYPE yylval;
 \/      	return OP_DIV;
 \&      	return ADRS;
 \^      	return PTR_VAL;
-\;		return SEMI;
-\,		return COMMA;
-\{		return CURLY_O;
-\}		return CURLY_C;
-\(		return PAREN_O;
-\)		return PAREN_C;
+\;		    return SEMI;
+\,		    return COMMA;
+\{		    return CURLY_O;
+\}		    return CURLY_C;
+\(		    return PAREN_O;
+\)		    return PAREN_C;
 \|      	return BAR;
-\[		return SQR_O;
-\]		return SQR_C;
+\[		    return SQR_O;
+\]		    return SQR_C;
 var|VAR   	return VAR;
 else      	return ELSE;
 if        	return IF;
@@ -50,7 +52,7 @@ real\* 		return REALP_TYPE;
 char\*   	return CHARP_TYPE;
 return    	return RETURN;
 "null"|"NULL"	return NULL_;
-do		return DO;
+do		    return DO;
 main		return MAIN;
 
 
