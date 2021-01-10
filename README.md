@@ -9,12 +9,12 @@ A simple Lexical Analyzer, Syntax Analyzer, Semantics Analyzer and Three Address
 * `lex.yy.c` is the compiled file from `project.l`
 * `y.tab.c` is the compiled file from `project.y`
 
-### To Test (In Container):
+### How To Test (In Container):
 Run `docker run maxpok/compiler`.
 
-### To Run (In Linux):
+### How To Run (In Linux):
 * `chmod +x run.sh`
 * Run `sh ./run.sh`
 
-##### IMPORTANT
+##### NOTE:
 Make sure you have bison, flex and gcc installed.
