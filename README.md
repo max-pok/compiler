@@ -1,5 +1,4 @@
-# compiler
-Project in compilation course
+# Compiler
 
 ### Description
 A simple Lexical Analyzer, Syntax Analyzer, Semantics Analyzer and Three Address Code for the language `C+-`.
